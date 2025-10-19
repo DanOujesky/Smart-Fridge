@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import ThemedIcon from "../../components/ThemedIcon";
+import AddItemMenu from "../../components/AddItemMenu";
 
 export default function Index() {
   const [search, setSearch] = useState("");
@@ -107,9 +108,7 @@ export default function Index() {
           )}
           keyExtractor={(item) => item.id}
         />
-        <TouchableOpacity className="absolute bottom-6 right-6 bg-green-600 w-14 h-14 rounded-full items-center justify-center shadow-lg">
-          <ThemedIcon name="add" size={28} colorBasic="#fff" colorDark="#fff" />
-        </TouchableOpacity>
+        <AddItemMenu />
       </View>
     </SafeAreaView>
   );

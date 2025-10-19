@@ -1,25 +1,36 @@
-import { View, Text } from "react-native";
 import React from "react";
 import { Tabs } from "expo-router";
 import TabIcon from "../../components/TabIcon";
 import { icons } from "../../constants/icons";
+import { useTheme } from "@react-navigation/native";
 
 const _layout = () => {
   return (
     <Tabs
-      screenOptions={{
-        tabBarItemStyle: {
-          width: "100%",
-          height: "100%",
-          justifyContent: "center",
-          alignItems: "center",
-        },
-        tabBarActiveTintColor: "#53c402",
-        tabBarInactiveTintColor: "#7d7d7d",
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontWeight: "600",
-        },
+      screenOptions={() => {
+        const { dark } = useTheme();
+
+        return {
+          tabBarStyle: {
+            backgroundColor: dark ? "#000000" : "#FFFFFF",
+            borderTopWidth: 0,
+            height: 80,
+          },
+          tabBarItemStyle: {
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingVertical: 5,
+          },
+          tabBarLabelPosition: "below-icon",
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: "600",
+            marginTop: 2,
+          },
+          tabBarActiveTintColor: "#53c402",
+          tabBarInactiveTintColor: "#7d7d7d",
+        };
       }}
     >
       <Tabs.Screen
